@@ -1,0 +1,37 @@
+<!Doctype HTML>
+<HTML>
+    <HEAD>
+        <SCRIPT src="https://aframe.io/releases/1.0.4/aframe.min.js"></SCRIPT>
+        <SCRIPT src="//cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></SCRIPT>
+        <SCRIPT src="./Components/rotation.js"></SCRIPT>
+        <SCRIPT src="./Components/collider.js"></SCRIPT>
+        <SCRIPT src=""></SCRIPT>
+    </HEAD>
+    <BODY>
+        <A-SCENE background="color:#2389DA">
+           <A-ENTITY id="look" look-controls camera position="0 2 20"></A-ENTITY> 
+           <A-ASSET timeout="10000">
+               <A-ASSET-ITEM id="scubadiver" src="./Models/scuba-diver/scene.gltf"></A-ASSET-ITEM>
+               <A-ASSET-ITEM id="island" src="./Models/island/scene.gltf"></A-ASSET-ITEM>
+           </A-ASSET>  
+           <A-ENTITY 
+           id="land"
+           gltf-model="#island"
+           position="0 10 0"
+           scale="0.5 0.5 0.5"
+           animation="property:easing:linear; loop: true; dur: 150000"
+           terrain-reader
+           turtles
+           >
+           </A-ENTITY>
+           <A-ENTITY 
+           id="diver"
+           gltf-model="diver"
+           position="0 0 0"
+           scale="0.5 0.5 0.5"
+           scuba-reader
+           >
+           </A-ENTITY>
+        </A-SCENE>
+    </BODY>
+</HTML>
